@@ -56,7 +56,12 @@ namespace JWTApi.Controllers
                 });
             }
 
-            return Unauthorized();
+            return StatusCode(StatusCodes.Status404NotFound,
+                    new Response
+                    {
+                        Status = "Error",
+                        Message = "User Not Found"
+                    });
         }
 
         [HttpPost]
